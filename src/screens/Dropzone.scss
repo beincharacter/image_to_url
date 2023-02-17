@@ -1,0 +1,128 @@
+.main_container {
+    background-color: lightgreen;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+
+    
+
+    .dropzone_ {
+        // background-color: lightblue;
+        border: 2px dashed black;
+        height: 100%;
+        display: flex;
+        margin: 2rem;
+
+        
+
+
+        &_container {
+            border-right: 2px dashed black;
+            width: 35%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // background-color: lightpink;
+            text-align: center;
+
+            * {
+                padding: 1rem;
+                font-weight: bold;
+            }
+
+            .btn {
+                background-color: black;
+                color: white;
+            }
+
+        }
+
+        &_url {
+            background-color: rgba(155, 212, 115, 0.765);
+            height: 100%;
+            width: 65%;
+            overflow-y: scroll;
+
+            &::-webkit-scrollbar {
+                width: 0px;
+            }
+
+            li {   
+                
+                .image_ {
+                    margin-right: 10px;
+                }                 
+                input[type= "text"] {
+                    background-color: transparent;
+                  width: 70%;
+                  padding: 3px;
+                  height: 2rem;
+                  border: 1px solid black;
+                  border-right: 0;
+                }
+                button {
+                    background-color: transparent;
+                    border: 1px solid black;
+                  width: 15%;
+                  height: 2rem;
+
+                  &:hover {
+                    background-color: black;
+                    color: white;
+                  }
+                }
+              }
+
+            li {
+                margin: 5px;
+            }
+        }
+
+        @media only screen and (max-width: 500px) {
+            display: flex;
+            flex-direction: column;
+
+            &_container {
+                border-right: 0;
+                border-bottom: 2px dashed black;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                // background-color: lightpink;
+                text-align: center;
+    
+                * {
+                    padding: 1rem;
+                    font-weight: bold;
+                }
+    
+                .btn {
+                    background-color: black;
+                    color: white;
+                }
+    
+            }
+    
+            &_url {
+                background-color: rgba(155, 212, 115, 0.765);
+                width: 100%;
+                overflow-wrap: normal;
+    
+                &::-webkit-scrollbar {
+                    width: 0px;
+                }
+    
+                
+            }
+        }
+    }
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    // outline: 1px solid red;
+}

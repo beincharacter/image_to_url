@@ -5,6 +5,20 @@
     display: flex;
     flex-direction: column;
 
+    .loading {
+        position: absolute;
+        top: 40%;
+        right: 45%;
+    }
+
+    @media only screen and (max-width: 500px) {
+        .loading {
+            position: absolute;
+            left: 40%;
+            top: 40%;
+        }
+    }
+
     
 
     .dropzone_ {
@@ -82,6 +96,8 @@
         @media only screen and (max-width: 500px) {
             display: flex;
             flex-direction: column;
+
+            
 
             &_container {
                 border-right: 0;

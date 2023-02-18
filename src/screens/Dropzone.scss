@@ -74,15 +74,20 @@
                   height: 2rem;
                   border: 1px solid black;
                   border-right: 0;
+
+                  &:focus {
+                    outline: none;
+                  }
                 }
                 button {
-                    background-color: transparent;
+                    background-color: black;
+                    color: white;
                     border: 1px solid black;
                   width: 15%;
                   height: 2rem;
 
                   &:hover {
-                    background-color: black;
+                    background-color: rgba(0, 0, 0, 0.46);
                     color: white;
                   }
                 }

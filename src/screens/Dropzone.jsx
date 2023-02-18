@@ -6,8 +6,11 @@ import axios from 'axios';
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { ThreeCircles } from "react-loader-spinner";
 
-const CLOUDINARY_UPLOAD_PRESET = process.env.CLOUDINARY_UPLOAD_PRESET;
-const CLOUDINARY_UPLOAD_URL = process.env.CLOUDINARY_UPLOAD_URL;
+// const CLOUDINARY_UPLOAD_PRESET = process.env.CLOUDINARY_UPLOAD_PRESET;
+// const CLOUDINARY_UPLOAD_URL = process.env.CLOUDINARY_UPLOAD_URL;
+
+const CLOUDINARY_UPLOAD_PRESET = "htrt9fqi";
+const CLOUDINARY_UPLOAD_URL = "https://api.cloudinary.com/v1_1/doh91aq3h/image/upload";
 
 export function MyDropzone() {
   const [images, setImages] = useState([]);
@@ -23,9 +26,7 @@ export function MyDropzone() {
         formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
         formData.append('public_id', file.name);
 
-        axios.post(CLOUDINARY_UPLOAD_URL, formData, {
-          headers: { 'X-Requested-With': 'XMLHttpRequest' },
-        }).then((response) => {
+        axios.post(CLOUDINARY_UPLOAD_URL, formData).then((response) => {
           setLoading(false);
           setImages((prevImages) => [...prevImages, { url: response.data.secure_url }]);
         }).catch((error) => {
@@ -47,9 +48,6 @@ export function MyDropzone() {
         wrapperClass="loading"
         visible={loading}
         ariaLabel="three-circles-rotating"
-        outerCircleColor=""
-        innerCircleColor=""
-        middleCircleColor=""
       />
       <div className='dropzone_'>
         <div className='dropzone__container' {...getRootProps()}>

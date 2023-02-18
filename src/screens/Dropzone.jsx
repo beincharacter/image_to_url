@@ -26,7 +26,9 @@ export function MyDropzone() {
         formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
         formData.append('public_id', file.name);
 
-        axios.post(CLOUDINARY_UPLOAD_URL, formData).then((response) => {
+        axios.post(CLOUDINARY_UPLOAD_URL, formData, {
+          headers: { 'X-Requested-With': 'XMLHttpRequest' },
+        }).then((response) => {
           setLoading(false);
           setImages((prevImages) => [...prevImages, { url: response.data.secure_url }]);
         }).catch((error) => {
@@ -53,7 +55,7 @@ export function MyDropzone() {
         <div className='dropzone__container' {...getRootProps()}>
           <input {...getInputProps()} />
           <div>
-            {isDragActive ? <p className='drop_active' >Drag here</p> :
+            {isDragActive ? <p className='dropzone__active' >Drag here</p> :
               <>
                 <p >Drag & Drop to Upload Files</p>
                 <p>OR</p>
